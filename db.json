@@ -1,39 +1,25 @@
 {
   "clients": [
     {
-      "name": "sdfsad",
-      "address": "sadf",
-      "telephone": "asdf",
-      "account": "sadfasdfasdf",
+      "name": "John Doe",
+      "address": "California",
+      "telephone": "9172773",
+      "account": "Savings",
       "id": 1
     },
     {
-      "name": "sdfsad",
-      "address": "sadf",
-      "telephone": "asdf",
-      "account": "sadfasdfasdf",
+      "name": "Jane Doe",
+      "address": "Mexico",
+      "telephone": "2343214",
+      "account": "Savings",
       "id": 2
     },
     {
-      "name": "sdfsad",
-      "address": "sadf",
-      "telephone": "asdf",
-      "account": "sadfasdfasdf",
-      "id": 4
-    },
-    {
-      "name": "sdfsad",
-      "address": "sadf",
-      "telephone": "asdf",
-      "account": "sadfasdfasdf",
-      "id": 5
-    },
-    {
-      "name": "sdfsad",
-      "address": "sadf",
-      "telephone": "asdf",
-      "account": "sadfasdfasdf",
-      "id": 6
+      "name": "Richard Doe",
+      "address": "Spain",
+      "telephone": "32421431",
+      "account": "Interest",
+      "id": 3
     }
   ]
 }
