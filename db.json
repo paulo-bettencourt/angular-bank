@@ -1,0 +1,39 @@
+{
+  "clients": [
+    {
+      "name": "sdfsad",
+      "address": "sadf",
+      "telephone": "asdf",
+      "account": "sadfasdfasdf",
+      "id": 1
+    },
+    {
+      "name": "sdfsad",
+      "address": "sadf",
+      "telephone": "asdf",
+      "account": "sadfasdfasdf",
+      "id": 2
+    },
+    {
+      "name": "sdfsad",
+      "address": "sadf",
+      "telephone": "asdf",
+      "account": "sadfasdfasdf",
+      "id": 4
+    },
+    {
+      "name": "sdfsad",
+      "address": "sadf",
+      "telephone": "asdf",
+      "account": "sadfasdfasdf",
+      "id": 5
+    },
+    {
+      "name": "sdfsad",
+      "address": "sadf",
+      "telephone": "asdf",
+      "account": "sadfasdfasdf",
+      "id": 6
+    }
+  ]
+}

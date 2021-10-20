@@ -1,0 +1,19 @@
+<h1>CLIENT LIST</h1>
+
+<router-outlet></router-outlet>
+
+<table class='table'>
+    <tbody>
+  <nav>
+    <ul *ngFor="let client of clients;">
+      <li>ID: {{client.id}}</li>
+      <li>Name: {{client.name}}</li>
+      <li>Address: {{client.address}}</li>
+      <li>Telephone: {{client.telephone}}</li>
+      <li>Account: {{client.account}}</li>
+      <li>Link: <a href="{{ baseURL }}{{ client.id }}">Client number {{ client.id }}</a></li>
+      <li><a routerLink="/update-client/" [queryParams]="{ id: client.id}" routerLinkActive="active">LINK</a></li>
+      </ul>
+  </nav>
+    </tbody>
+  </table>

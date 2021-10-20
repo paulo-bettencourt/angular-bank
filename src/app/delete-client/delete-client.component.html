@@ -1,0 +1,29 @@
+<!-- <div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="client.name" /><br>
+    <label>Address: </label>
+    <input [(ngModel)]="client.address" /><br>
+    <label>Telephone: </label>
+    <input [(ngModel)]="client.telephone" /><br>
+    <label>Account: </label>
+    <input [(ngModel)]="client.account" />
+  </div>
+  <div>
+    <button (click)="deleteClient()">Delete</button>
+  </div>
+</div>
+  -->
+
+<h1>DELETE CLIENTS</h1>
+
+<div class="column small-12 large-2">
+  <select [(ngModel)]="client.name" id="client-list" (ngModelChange)="deleteClient(this)">
+    <option *ngFor="let client of clients" 
+    value="{{ client.id }}"
+    >
+  {{ client.id }} - {{client.name}} 
+</option>
+
+  </select>
+</div>

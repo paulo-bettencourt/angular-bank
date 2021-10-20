@@ -1,0 +1,22 @@
+<hr>
+<h1>UPDATE CLIENTS</h1>
+
+<form [formGroup]="profileForm">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name"> 
+    <br>
+    <label for="address">Address: </label>
+    <input id="address" type="text" formControlName="address">
+    <br>
+    <label for="telephone">Telephone: </label>
+    <input id="telephone" type="text" formControlName="telephone">
+    <br>
+    <label for="account">Account: </label>
+    <input id="account" type="text" formControlName="account">
+    <br>
+  
+    <p>Complete the form to enable button.</p>
+  <button type="submit" (click)="onSubmit($event)">Update</button>
+  
+  </form>
