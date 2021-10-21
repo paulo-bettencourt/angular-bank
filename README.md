@@ -14,6 +14,14 @@ Bank APP coded in Angular CLI version 12.2.9. This application uses the GET, POS
 - The UI and UX are still under development
 - Bug: the app will only retrieve the client's information on the UPDATE forms (you need to click on "Link", under the Client List component), if you start from `http://localhost:4200/` From the moment that you click on "Link", the following forms will not retrieve each client's info
 
+## Bootstrap
+
+We strongly recommend adding the ng-bootstrap library to the project.
+
+Just run the following:
+
+`ng add @ng-bootstrap/ng-bootstrap`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
