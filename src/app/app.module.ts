@@ -1,29 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddClientComponent } from './add-client/add-client.component';
-import { DeleteClientComponent } from './delete-client/delete-client.component';
-import { UpdateClientComponent } from './update-client/update-client.component';
+
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
-    AddClientComponent,
-    DeleteClientComponent,
-    UpdateClientComponent,
-    ClientsListComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    
   ],
   providers: [ClientsListComponent],
   bootstrap: [AppComponent]

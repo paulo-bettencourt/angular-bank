@@ -1,17 +1,29 @@
-<h1>ADD CLIENTS</h1>
-<div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="client.name" /><br>
-    <label>Address: </label>
-    <input [(ngModel)]="client.address" /><br>
-    <label>Telephone: </label>
-    <input [(ngModel)]="client.telephone" /><br>
-    <label>Account: </label>
-    <input [(ngModel)]="client.account" />
-  </div>
-  <div>
-    <button (click)="addClient()">Add Client</button>
-  </div>
+<hr>
+<h1>Add clients</h1>
+
+<table class="table ">
+  <th>
+    <tr>
+      <td>Name:</td>
+      <td><input [(ngModel)]="client.name" class="input"/><br></td>
+    </tr>
+    <tr>
+      <td>Address:</td>
+      <td><input [(ngModel)]="client.address" class="input"/></td>
+    </tr>
+    <tr>
+      <td>Telephone:</td>
+      <td><input [(ngModel)]="client.telephone" class="input"/></td>
+    </tr>
+    <tr>
+      <td>Account:</td>
+      <td><input [(ngModel)]="client.account" class="input"/></td>
+    </tr>
+        
+  </th>
+</table>
+<br>
+<div class="d-flex justify-content-center">
+  <button (click)="addClient()" type="button" class="btn btn-primary btn-block btnbtn">Add Client</button>
 </div>
- 
+

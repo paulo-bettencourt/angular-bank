@@ -1,29 +1,14 @@
-<!-- <div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="client.name" /><br>
-    <label>Address: </label>
-    <input [(ngModel)]="client.address" /><br>
-    <label>Telephone: </label>
-    <input [(ngModel)]="client.telephone" /><br>
-    <label>Account: </label>
-    <input [(ngModel)]="client.account" />
-  </div>
-  <div>
-    <button (click)="deleteClient()">Delete</button>
-  </div>
-</div>
-  -->
+<hr>
+<h1>Delete clients</h1>
 
-<h1>DELETE CLIENTS</h1>
-
-<div class="column small-12 large-2">
-  <select [(ngModel)]="client.name" id="client-list" (ngModelChange)="deleteClient(this)">
+<div class="column small-12 large-2 d-flex justify-content-center">
+  <select [(ngModel)]="client.name" class="btn btn-danger dropdown-toggle btn-lg btn-delete" (ngModelChange)="deleteClient(this)" value="B">
+    <option value="undefined" selected disabled>Select client to delete</option>
     <option *ngFor="let client of clients" 
     value="{{ client.id }}"
     >
   {{ client.id }} - {{client.name}} 
 </option>
-
   </select>
 </div>
+

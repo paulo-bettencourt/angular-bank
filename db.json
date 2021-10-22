@@ -1,24 +1,24 @@
 {
   "clients": [
     {
-      "name": "John Doe",
+      "name": "Jane Doe John Doe",
       "address": "California",
       "telephone": "9172773",
       "account": "Savings",
       "id": 1
     },
     {
-      "name": "Jane Doe",
-      "address": "Mexico",
-      "telephone": "2343214",
+      "name": "Diogo Bento",
+      "address": "São Jorge",
+      "telephone": "9182774",
       "account": "Savings",
       "id": 2
     },
     {
-      "name": "Richard Doe",
-      "address": "Spain",
-      "telephone": "32421431",
-      "account": "Interest",
+      "name": "Paulo Lemos",
+      "address": "Açores",
+      "telephone": "69",
+      "account": "Nice",
       "id": 3
     }
   ]

@@ -17,4 +17,9 @@ export class ApiService {
     return this.http.get<Client[]>(this.baseURL + 'clients')
   }
 
+  deleteClient(event: any) {
+    this.http.delete(this.baseURL + 'clients/' + event)
+    .subscribe(() => console.log('Delete successful'));
+}
+
 }

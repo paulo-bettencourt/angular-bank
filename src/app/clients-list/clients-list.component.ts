@@ -25,4 +25,13 @@ export class ClientsListComponent implements OnInit {
       })      
   }
 
+  deleteClient(event: any) {
+
+    if(confirm("Are you sure to delete client number "+ event +"?")) {
+      console.log(event);
+      this.apiService.deleteClient(event);
+      this.refreshPeople();
+    }
+  }
+
 }

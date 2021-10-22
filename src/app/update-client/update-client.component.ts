@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../add-client/client';
-import { ClientsListComponent } from '../clients-list/clients-list.component';
 import { ApiService } from './api.service';
 
 @Component({
@@ -14,11 +13,11 @@ import { ApiService } from './api.service';
 })
 export class UpdateClientComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private apiService:ApiService, private clientsComponent: ClientsListComponent, private http: HttpClient) { }
+  constructor(private router: Router, private route: ActivatedRoute, private apiService:ApiService, private http: HttpClient) { }
 
   baseURL = "http://localhost:3000/clients/";
 
-  clients: Client[] = this.clientsComponent.clients;
+  clients: Client[] = [];
   idNumber!: any;
   idNumberMinusOne!: any;
 
@@ -31,40 +30,54 @@ export class UpdateClientComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.queryParams
-    .subscribe(params => {
-      this.idNumber = params.id;
-      this.idNumberMinusOne = this.idNumber - 1;
-       if (!this.profileForm.get("name")) {
-        this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
-        this.profileForm.get("address")?.setValue(this.clients[this.idNumberMinusOne]?.address);
-        this.profileForm.get("telephone")?.setValue(this.clients[this.idNumberMinusOne]?.telephone);
-        this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
-       } else {
-         this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
-         this.profileForm.get("address")?.setValue(this.clients[this.idNumberMinusOne]?.address);
-         this.profileForm.get("telephone")?.setValue(this.clients[this.idNumberMinusOne]?.telephone);
-         this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
-       }
-      }
-    )
+    if(this.clients.length == 0) {
+      this.apiService.getPeople()
+      .subscribe(data => {
+        this.clients=data;
+        console.log(this.clients[0].name + " api")
+        this.queryParams();
+      })  
+    }
   }
 
 onSubmit(event: any) {
     this.apiService.updateClient(this.profileForm.value, this.idNumber);
+    alert("User has been updated");
+    this.router.navigateByUrl('/clients-list');
 
-}
-
-getPeople(): Observable<Client[]> {
-  console.log('getPeople '+this.baseURL + 'clients')
-  return this.http.get<Client[]>(this.baseURL + 'clients')
 }
 
 refreshPeople() {
   this.apiService.getPeople()
-    .subscribe((data: any) => {
+    .subscribe(data => {
       this.clients=data;
-    })
+    })      
+}
+
+queryParams() {
+  this.route.queryParams
+  .subscribe(params => {
+    this.idNumber = params.id;
+    console.log(this.idNumber + " IDNUMBER")
+    this.idNumberMinusOne = this.idNumber - 1;
+    console.log(this.idNumberMinusOne + "IDNUMBERMINUSONE")
+     if (!this.profileForm.get("name")) {
+      this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
+      this.profileForm.get("address")?.setValue(this.clients[this.idNumberMinusOne]?.address);
+      this.profileForm.get("telephone")?.setValue(this.clients[this.idNumberMinusOne]?.telephone);
+      this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
+      console.log("entra " + this.clients[params.id].name)
+     } else {
+       this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
+       this.profileForm.get("address")?.setValue(this.clients[this.idNumberMinusOne]?.address);
+       this.profileForm.get("telephone")?.setValue(this.clients[this.idNumberMinusOne]?.telephone);
+       this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
+       console.log("1 - n entra")
+       console.log("2 - entra " + this.clients[1]?.account + " ??")
+       console.log("3 - " + this.clients[1]?.name)
+     }
+    }
+  )
 }
 
 }

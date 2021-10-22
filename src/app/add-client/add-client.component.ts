@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { Client } from './client';
 
@@ -10,7 +11,7 @@ import { Client } from './client';
 })
 export class AddClientComponent implements OnInit {
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, private router: Router) { }
 
   title = 'Angular Bank';
   client = new Client();
@@ -25,6 +26,9 @@ export class AddClientComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.refreshPeople();
+        alert("User has been added");
+        this.router.navigateByUrl('/clients-list');
+
       })      
   }
 
