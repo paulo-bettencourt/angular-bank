@@ -10,9 +10,7 @@ Bank APP coded in Angular CLI version 12.2.9. This application uses the GET, POS
 
 
 ## Watch out!
-- The refresh method is yet to be implemented, so after each action you will have to reload the page in order to have access to the updated database
 - The UI and UX are still under development
-- Bug: the app will only retrieve the client's information on the UPDATE forms (you need to click on "Link", under the Client List component), if you start from `http://localhost:4200/` From the moment that you click on "Link", the following forms will not retrieve each client's info
 
 ## Bootstrap
 
