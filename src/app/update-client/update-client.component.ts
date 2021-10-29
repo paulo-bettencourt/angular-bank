@@ -17,11 +17,13 @@ export class UpdateClientComponent implements OnInit {
 
   baseURL = "http://localhost:3000/clients/";
 
+  client = new Client();
   clients: Client[] = [];
   idNumber!: any;
   idNumberMinusOne!: any;
-
+  
   profileForm = new FormGroup({
+    id: new FormControl(),
     name: new FormControl(),
     address: new FormControl(),
     telephone: new FormControl(),
@@ -58,8 +60,8 @@ queryParams() {
   this.route.queryParams
   .subscribe(params => {
     this.idNumber = params.id;
-    console.log(this.idNumber + " IDNUMBER")
     this.idNumberMinusOne = this.idNumber - 1;
+    console.log(this.idNumber + " IDNUMBER")
     console.log(this.idNumberMinusOne + "IDNUMBERMINUSONE")
      if (!this.profileForm.get("name")) {
       this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
@@ -68,13 +70,14 @@ queryParams() {
       this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
       console.log("entra " + this.clients[params.id].name)
      } else {
+      this.profileForm.get("id")?.setValue(this.clients[this.idNumberMinusOne]?.id);
        this.profileForm.get("name")?.setValue(this.clients[this.idNumberMinusOne]?.name);
        this.profileForm.get("address")?.setValue(this.clients[this.idNumberMinusOne]?.address);
        this.profileForm.get("telephone")?.setValue(this.clients[this.idNumberMinusOne]?.telephone);
        this.profileForm.get("account")?.setValue(this.clients[this.idNumberMinusOne]?.account);
        console.log("1 - n entra")
-       console.log("2 - entra " + this.clients[1]?.account + " ??")
-       console.log("3 - " + this.clients[1]?.name)
+       console.log("2 - entra " + this.clients[this.idNumberMinusOne]?.account + " ??")
+       console.log("3 - " + this.clients[this.idNumberMinusOne]?.name)
      }
     }
   )

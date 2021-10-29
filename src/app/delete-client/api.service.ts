@@ -8,18 +8,18 @@ import { Client } from '../add-client/client';
 })
 export class ApiService {
 
-  baseURL: string = "http://localhost:3000/";
+  baseURL: string = "http://localhost:8080/";
 
   constructor(private http: HttpClient) { }
 
   deleteClient(event: any) {
-      this.http.delete(this.baseURL + 'clients/' + event)
+      this.http.delete(this.baseURL + 'angularbank/delete/' + event)
       .subscribe(() => console.log('Delete successful'));
   }
 
   getPeople(): Observable<Client[]> {
-    console.log('getPeople '+this.baseURL + 'clients')
-    return this.http.get<Client[]>(this.baseURL + 'clients')
+    console.log('getPeople '+this.baseURL + 'angularbank/clients')
+    return this.http.get<Client[]>(this.baseURL + 'angularbank/clients')
   }
 
 }

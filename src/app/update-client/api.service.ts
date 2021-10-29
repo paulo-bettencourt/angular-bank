@@ -10,24 +10,24 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  baseURL: string = "http://localhost:3000/";
+  baseURL: string = "http://localhost:8080/";
 
   [x: string]: any;
 
-  getPeople(): Observable<Client[]> {
-    console.log('getPeople '+this.baseURL + 'clients')
-    return this.http.get<Client[]>(this.baseURL + 'clients')
-  }
-
   updateClient(event: any, id: number) {
-    this.http.put<any>("http://localhost:3000/clients/" + id, {
+    this.http.put<any>("http://localhost:8080/angularbank/update/", {
+      "id": event.id,
       "name": event.name,
       "address": event.address,
       "telephone": event.telephone,
       "account": event.account,
-      "id": 1
     })
     .subscribe(data => this.postId = data.id);
+  }
+
+  getPeople(): Observable<Client[]> {
+    console.log('getPeople '+this.baseURL + 'angularbank/clients')
+    return this.http.get<Client[]>(this.baseURL + 'angularbank/clients')
   }
 
 }

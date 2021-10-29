@@ -10,20 +10,18 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  baseURL: string = "http://localhost:3000/";
-  idNumber: number = 0;
+  baseURL: string = "http://localhost:8080/";
+
+  getPeople(): Observable<Client[]> {
+    console.log('getPeople '+this.baseURL + 'angularbank/clients')
+    return this.http.get<Client[]>(this.baseURL + 'angularbank/clients')
+  }
 
   addClient(person:Client): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(person);
     console.log(body);
-    this.idNumber++;
-    return this.http.post(this.baseURL + 'clients', body,{'headers':headers})
+    return this.http.post(this.baseURL + '/angularbank/add', body,{'headers':headers})
   }
-
-  getPeople(): Observable<Client[]> {
-    console.log('getPeople '+this.baseURL + 'clients')
-    return this.http.get<Client[]>(this.baseURL + 'clients')
-  }
-
+  
 }

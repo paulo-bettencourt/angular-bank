@@ -21,6 +21,13 @@ export class AddClientComponent implements OnInit {
     this.refreshPeople()
   }
 
+  refreshPeople() {
+    this.apiService.getPeople()
+      .subscribe(data => {
+        this.clients=data;
+      })      
+  }
+
   addClient() {
     this.apiService.addClient(this.client)
       .subscribe(data => {
@@ -28,14 +35,6 @@ export class AddClientComponent implements OnInit {
         this.refreshPeople();
         alert("User has been added");
         this.router.navigateByUrl('/clients-list');
-
-      })      
-  }
-
-  refreshPeople() {
-    this.apiService.getPeople()
-      .subscribe(data => {
-        this.clients=data;
       })      
   }
 
