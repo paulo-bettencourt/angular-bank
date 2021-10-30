@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Client } from '../add-client/client';
 import { ApiService } from './api.service';
 
@@ -9,7 +9,12 @@ import { ApiService } from './api.service';
 })
 export class ClientsListComponent implements OnInit {
 
-  constructor(private apiService:ApiService) { }
+  collection: { id: number; }[];
+
+  constructor(private apiService:ApiService) {
+
+    this.collection = [{id: 1}, {id: 2}, {id: 3}];
+   }
 
   clients: Client[] = [];
   baseURL = "http://localhost:3000/clients/";
@@ -21,6 +26,7 @@ export class ClientsListComponent implements OnInit {
   refreshPeople() {
     this.apiService.getPeople()
       .subscribe(data => {
+        this.clients = [];
         this.clients=data;
       })      
   }
@@ -31,7 +37,13 @@ export class ClientsListComponent implements OnInit {
       console.log(event);
       this.apiService.deleteClient(event);
       this.refreshPeople();
+      console.log("fim")
     }
   }
+
+trackByFn(index: any, item: any) {
+  return index;
+}
+
 
 }

@@ -31,12 +31,15 @@ export class DeleteClientComponent implements OnInit {
   deleteClient(event: any) {
 
     if(confirm("Are you sure to delete client number "+ event.client.name +"?")) {
-      console.log(event.client.name);
+      console.log(event.client.name + " NOME DO CLIENTE");
       this.apiService.deleteClient(event.client.name);
       this.refreshPeople();
+      console.log("apagou")
     }
+  }
 
-
+  trackByFn(index: any, item: any) {
+    return index;
   }
 
 }
