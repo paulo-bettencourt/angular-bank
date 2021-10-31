@@ -8,6 +8,7 @@
       <th>Address</th>
       <th>Telephone</th>
       <th>Type of account</th>
+      <th>Deposit</th>
       <th>Edit client</th>
       <th>Delete client</th>
     </tr>
@@ -17,6 +18,7 @@
       <td>{{client.address}}</td>
       <td>{{client.telephone}}</td>
       <td>{{client.account}}</td>
+      <td>$ {{ client.deposit }}</td>
       <td><a routerLink="/update-client/" [queryParams]="{id: i + 1}" routerLinkActive="active" class="nav-button"><button class="button-client-list btn-success">Edit</button></a></td>
       <td><button class="button-client-list btn-danger" (click)="deleteClient(client.id); refreshPeople()">Delete</button></td>
     </tr>

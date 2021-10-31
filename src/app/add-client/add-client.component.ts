@@ -29,6 +29,12 @@ export class AddClientComponent implements OnInit {
   }
 
   addClient() {
+
+    if(this.client.account == null) {
+      alert("You need to select an account")
+      return
+    }
+
     this.apiService.addClient(this.client)
       .subscribe(data => {
         console.log(data)

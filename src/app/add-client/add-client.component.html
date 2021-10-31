@@ -17,9 +17,19 @@
     </tr>
     <tr>
       <td>Account:</td>
-      <td><input [(ngModel)]="client.account" class="input"/></td>
+      <td>
+        <select [(ngModel)]="client.account" class="btn btn-light dropdown-toggle btn-lg btn-delete">
+          <option value="undefined" selected disabled>Select type of account</option>
+          <option class="input" value="Savings">Savings</option>
+          <option class="input" value="Checkings">Checkings</option>
+        </select>
+      </td>
     </tr>
-        
+    <tr>
+      <td>Deposit ($):</td>
+      <td><input [(ngModel)]="client.deposit" class="input"/></td>
+    </tr>
+    <tr>
   </th>
 </table>
 <br>
@@ -27,3 +37,7 @@
   <button (click)="addClient()" type="button" class="btn btn-primary btn-block btnbtn">Add Client</button>
 </div>
 
+
+<!-- 
+<td>Account:</td>
+<td><input [(ngModel)]="client.account" class="input"/></td> -->

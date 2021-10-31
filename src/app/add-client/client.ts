@@ -5,4 +5,5 @@ export class Client {
     address!: string
     telephone!: number
     account!: string
+    deposit!: number
   }
